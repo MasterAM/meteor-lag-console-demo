@@ -1,0 +1,34 @@
+{
+  "lagConfig": {
+    "base": {
+      "defaultDelay": 1000,
+      "log": true
+    },
+    "methods": {
+    	"delays":{
+     	   "foo": 1500,
+     	   "bar": 500
+    	},
+      "exclude": [
+        "baz"
+      ],
+      "forceBlocking": [
+        "dummy"
+      ]
+    },
+    "publications": {
+    	"delays":{
+     	   "dummy": 350
+    	},
+      "exclude": [
+        "dummy2"
+      ],
+      "forceBlocking": [
+        "dummy3"
+      ]
+    },
+    "console": {
+      "disableOnStartup": false
+    }
+  }
+}

@@ -1,0 +1,27 @@
+/* CSS declarations go here */
+.main {
+  float:right;
+}
+
+.main h1 {
+  margin-top: 0;
+}
+
+p.active {
+  color: #a33;
+}
+ .method {
+   width: 200px;
+   height: 100px;
+   display: flex;
+   flex-direction: column;
+   border: 1px #555 solid;
+   border-radius: 5px;
+   margin: 10px 0;
+   padding: 5px 10px;
+ }
+
+ .method .content {
+   position: relative;
+   flex: 1;
+ }
