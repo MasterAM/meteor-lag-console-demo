@@ -1,26 +1,18 @@
 var methods = ['foo', 'bar', 'baz'];
-var delayData = {
-  'foo' : {
-    delayText: "look at settings"
-  },
-  'bar' : {
-    delayText: "delayed by 500ms"
-  },
-  'baz': {
-    delayText: "not delayed"
-  }
-};
-// counter starts at 0
 
-Template.method.helpers({
-  isLoading: function(){
-    return Session.get(this);
-  },
-  delayText: function() {
-    return delayData[this].delayText;
-  },
-  name: function() {
-    return this;
+var configCollection = Package['alon:lag-console'].configCollection;
+
+Template.main.events({
+  'click button.all': function (e, tpl) {
+    methods.forEach(function (methodName) {
+      callMethod(methodName);
+    });
+  }
+});
+
+Template.main.helpers({
+  methodNames: function () {
+    return methods;
   }
 });
 
@@ -32,17 +24,36 @@ Template.method.events({
   }
 });
 
-Template.main.helpers({
-  methodNames: function () {
-    return methods;
-  }
-});
-
-Template.main.events({
-  'click button.all': function (e, tpl) {
-    methods.forEach(function (methodName) {
-      callMethod(methodName);
-    });
+Template.method.helpers({
+  isLoading: function(){
+    return Session.get(this.toString());
+  },
+  delayText: function() {
+    var delayText;
+    var method, defaultDelay;
+    var globallyDisabled = configCollection.findOne({type: 'config', name: 'disable', level: 'base'});
+    var methodDisabled = configCollection.findOne({type: 'config', name: 'disable', level: 'method'});
+    if ((globallyDisabled && globallyDisabled.value) ||
+        (methodDisabled && methodDisabled.value)) {
+      delayText = "not delayed (disabled)";
+    } else {
+      method = configCollection.findOne({type: 'method', name: this.toString()});
+      if (method) {
+        if (method.isExcluded) {
+          delayText = "not delayed (excluded)";
+        } else if (typeof method.delay == "number") {
+          delayText = "delayed by "+ method.delay + "ms (custom)";
+        }
+      }
+      if (!delayText) {
+        defaultDelay = configCollection.findOne({type: 'config', name: 'defaultDelay'});
+        delayText = "delayed by "+ defaultDelay.value + "ms";
+      }
+    }
+    return delayText;
+  },
+  name: function() {
+    return this;
   }
 });
 

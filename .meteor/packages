@@ -12,4 +12,5 @@ alon:lag-console
 alon:lag-methods
 useraccounts:semantic-ui
 accounts-password
-useraccounts:iron-routing
+useraccounts:flow-routing
+alon:lag-base
