@@ -1,12 +1,11 @@
 {
   "lagConfig": {
     "base": {
-      "defaultDelay": 1000,
+      "defaultDelay": 1200,
       "log": true
     },
     "methods": {
     	"delays":{
-     	   "foo": 1500,
      	   "bar": 500
     	},
       "exclude": [
@@ -18,7 +17,7 @@
     },
     "publications": {
     	"delays":{
-     	   "pub2": 350
+     	   "pub2": 500
     	},
       "exclude": [
         "pub3"

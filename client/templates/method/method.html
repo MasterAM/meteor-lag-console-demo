@@ -5,7 +5,7 @@
                 {{name}} - {{delayText 'method' .}}
             </div>
             {{#if isLoading}}
-                {{> spinner}}
+                <span class="loading">Loading...</span>
             {{/if}}
         </div>
         <button class="single">Call {{name}}</button>
