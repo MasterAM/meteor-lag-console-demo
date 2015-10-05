@@ -4,29 +4,7 @@
 </head>
 
 <body>
-    {{> main}}
 </body>
 
-<template name="main">
-  <div class="main">
-    <h1>Delay Test</h1>
-    {{#each methodNames}}
-        {{> method}}
-    {{/each}}
-    <button class="all">Call all methods</button>    
-  </div>
-</template>
 
-<template name="method">
-    <div class="method">
-        <div class="content">
-            {{#if isLoading}}
-                {{> spinner}}
-            {{else}}
-                {{name}} - {{delayText}}
-            {{/if}}
 
-        </div>
-        <button class="single">Call {{name}}</button>
-    </div>
-</template>

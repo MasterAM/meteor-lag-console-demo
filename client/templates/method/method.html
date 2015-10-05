@@ -1,0 +1,13 @@
+<template name="method">
+    <div class="method">
+        <div class="content">
+            <div class="header">
+                {{name}} - {{delayText 'method' .}}
+            </div>
+            {{#if isLoading}}
+                {{> spinner}}
+            {{/if}}
+        </div>
+        <button class="single">Call {{name}}</button>
+    </div>
+</template>

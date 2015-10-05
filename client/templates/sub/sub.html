@@ -1,0 +1,8 @@
+<template name="Sub">
+    <div class="waiting">{{publicationName}} - {{delayText 'publication' publicationName}}</div>
+    {{#if isReady}}
+        {{> Methods params}}
+    {{else}}
+        {{> SpinBlock}}
+    {{/if}}
+</template>

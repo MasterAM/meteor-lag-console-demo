@@ -18,13 +18,13 @@
     },
     "publications": {
     	"delays":{
-     	   "dummy": 350
+     	   "pub2": 350
     	},
       "exclude": [
-        "dummy2"
+        "pub3"
       ],
       "forceBlocking": [
-        "dummy3"
+        "pub3"
       ]
     },
     "console": {

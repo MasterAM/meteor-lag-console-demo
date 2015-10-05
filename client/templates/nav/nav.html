@@ -1,0 +1,12 @@
+<template name="Nav">
+    <div class="ui fixed transparent inverted main menu">
+        <div class="header item">Delay Test</div>
+        <a  class="item" href="/">Home</a>
+        {{#each subs}}
+            <a class="item" href="/subs/{{.}}">Publication {{.}}</a>
+        {{/each}}
+        <div class="right menu">
+            {{> atNavButton}}
+        </div>
+    </div>
+</template>

@@ -1,0 +1,12 @@
+<template name="Layout">
+
+    <div id="nav">
+        {{> Template.dynamic template=nav}}
+    </div>
+
+    <div id="content" class="ui stackable page grid">
+        <div class="right floated column">
+            {{> Template.dynamic template=main data=params}}
+        </div>
+    </div>
+</template>
