@@ -3,7 +3,7 @@ accounts-password@1.1.3
 aldeed:template-extension@3.4.3
 alon:lag-base@1.0.2
 alon:lag-console@1.0.0
-alon:lag-methods@1.0.0
+alon:lag-methods@1.0.1
 alon:lag-publications@1.0.1
 autoupdate@1.2.3
 babel-compiler@5.8.24_1
